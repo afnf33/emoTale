@@ -58,6 +58,9 @@ Rule-based 모델. 정확도가 0.3 수준에서 벗어나지 못해 실패
   
 # 3. 프로젝트 결과
  
+![그림1](https://user-images.githubusercontent.com/49966189/91823152-c0e74e80-ec73-11ea-954e-a945d4fe55a1.png)
+![그림2](https://user-images.githubusercontent.com/49966189/91823156-c17fe500-ec73-11ea-940f-7ed03038f710.png)
+
 
 학습된 모델을 활용할 한가지 방안으로 일기 형태의 텍스트를 입력 받아, 그 텍스트가 담고 있는 감정을 그래프 형태로 출력하는 서비스를 구현하였다. 
 
@@ -71,17 +74,17 @@ Rule-based 모델. 정확도가 0.3 수준에서 벗어나지 못해 실패
 # 5. Reference  
 
 
-Ekman(1992), “Are there basic emotion?”, Handbook of cognition and emotion, p45
-Fredrik Hallsmar & Jonas Palm(2016), “Multi-class Sentiment Classification on Twitter using an Emoji Training Heuristic”, Computer Science
-남민지, 이은지, 신주현(2015), “인스타그램 해시태그를 이용한 사용자 감정 분류 방법”, 멀티미디어학회논문지 18호, p1391
-황재원, 고영중(2010), “감정 단어의 의미적 특성을 반영한 한국어 문서 감정분류 시스템”, 정보과학 논문지:소프트웨어및응용 37호, p317
-Chris Westbury et al(2014), “Avoid violence, rioting, and outrage; approach celebration, delight, and strength: Using large text corpora to compute valence, arousal, and the basic emotions”, The Quarterly Journal of Experimental Psychology, Vol. 68 No. 8, p1599
-James A. Russell(1978), “Evidence of Convergent Validity on the Dimensions of Affect”, Journal of Personality and Social Psychology, Vol. 36 No. 10, p1152
-James A. Russell(1980), “A Circumplex Model of Affect”, Journal of Personality and Social Psychology, Vol. 39 No. 6, p1161
-Margaret M. Bradley & Peter J. Lang, “Affective Norms for English Words (ANEW): Instruction Manual and Affective Ratings”, NIMH Center for the Study of Emotion and Attention
+Ekman(1992), “Are there basic emotion?”, Handbook of cognition and emotion, p45  
+Fredrik Hallsmar & Jonas Palm(2016), “Multi-class Sentiment Classification on Twitter using an Emoji Training Heuristic”, Computer Science  
+남민지, 이은지, 신주현(2015), “인스타그램 해시태그를 이용한 사용자 감정 분류 방법”, 멀티미디어학회논문지 18호, p1391  
+황재원, 고영중(2010), “감정 단어의 의미적 특성을 반영한 한국어 문서 감정분류 시스템”, 정보과학 논문지:소프트웨어및응용 37호, p317  
+Chris Westbury et al(2014), “Avoid violence, rioting, and outrage; approach celebration, delight, and strength: Using large text corpora to compute valence, arousal, and the basic emotions”, The Quarterly Journal of Experimental Psychology, Vol. 68 No. 8, p1599  
+James A. Russell(1978), “Evidence of Convergent Validity on the Dimensions of Affect”, Journal of Personality and Social Psychology, Vol. 36 No. 10, p1152  
+James A. Russell(1980), “A Circumplex Model of Affect”, Journal of Personality and Social Psychology, Vol. 39 No. 6, p1161  
+Margaret M. Bradley & Peter J. Lang, “Affective Norms for English Words (ANEW): Instruction Manual and Affective Ratings”, NIMH Center for the Study of Emotion and Attention  
 The NRC Valence, Arousal, and Dominance(NRC-VAD) Lexicon[Website], https://saifmohammad.com/WebPages/nrc-vad.html
-JULIELab/EmoBank[Website], https://github.com/JULIELab/EmoBank
-Pytorch로 시작하는 딥러닝 입문[Website], https://wikidocs.net/64517
-kh-kim/simple-ntc[Website], https://github.com/kh-kim/simple-ntc
-SKTBrain/KoBERT[Website], https://github.com/SKTBrain/KoBERT
-어텐션 매커니즘과 tansformer(self-attention)[Website], https://medium.com/platfarm/%EC%96%B4%ED%85%90%EC%85%98-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98%EA%B3%BC-transfomer-self-attention-842498fd3225
+JULIELab/EmoBank[Website], https://github.com/JULIELab/EmoBank  
+Pytorch로 시작하는 딥러닝 입문[Website], https://wikidocs.net/64517  
+kh-kim/simple-ntc[Website], https://github.com/kh-kim/simple-ntc  
+SKTBrain/KoBERT[Website], https://github.com/SKTBrain/KoBERT  
+어텐션 매커니즘과 tansformer(self-attention)[Website], https://medium.com/platfarm/%EC%96%B4%ED%85%90%EC%85%98-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98%EA%B3%BC-transfomer-self-attention-842498fd3225  
