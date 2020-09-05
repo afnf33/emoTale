@@ -19,8 +19,18 @@ emotion(감정) + tale(이야기). 이야기에 담긴 감정을 찾아보자!
 
 # 2. 프로젝트 수행 과정
 
-## 2.1 (초기 계획) Valence-Arousal Model에 의거한 감성 분류
+## 2.1 (사전 시도) Valence-Arousal Model에 의거한 감성 분류
+- gitgub link : 따로 만든 다음에 링크 추가할게요
+- NRC-VAD(lexicon) : https://saifmohammad.com/WebPages/nrc-vad.html
+- emobank(corpus) : https://github.com/JULIELab/EmoBank
 
+Valence-Arousal은 EEG, ECG, GSR 등의 생체신호를 바탕으로 하는 연구에 주로 활용되는 정서모델로, 모호할 수 있는 정서를 객관적인 지표로 표현할 수 있기에 사전 시도로 선택하였다. Valence는 정서가에 해당하는 축으로 HRV(Heart Rate Variability)를 측정하여 얻어지게 되는데, 낮은 HRV는 부정적인 정서를, 높은 HRV는 긍정적인 정서를 나타낸다. Arousal은 각성가로 GSR(Galvanic Skin Response)을 측정하여 얻어지게 되는데, 높은 GSR은 높은 각성가를, 낮은 GSR은 낮은 각성가를 나타낸다. 사용된 lexicon과 corpus 역시 측정된 생체신호를 바탕으로 label되었기에 정서에 대한 객관적인 지표로 간주하였다.  
+
+Arousal은 기존의 감성분석에 가장 많이 활용되는 긍/부정에 해당하는 지표로 두 가지의 이점을 얻을 수 있다.  
+1. 긍/부정 연구에 활용되는 많은 데이터를 재활용할 수 있다
+2. 하나의 차원을 늘려 다양한 정서를 분류할 수 있다.
+
+해당 시도는 regression 문제로 접근하였고, 이는 측정 지표로서 mse를 사용하여 정확도를 확신하기 힘들었기에 이후 classification 문제로 전환하게 되었다.  
 
 
 ## 2.2 KoBERT를 활용한 한국어 자연어 감성 분류
@@ -69,6 +79,9 @@ Rule-based 모델. 정확도가 0.3 수준에서 벗어나지 못해 실패
 
 향후 모델의 성능 향상을 위해 중립 정서를 분류하는 알고리즘을 추가하여 단순한 정보만을 담고 있는 텍스트나 선정한 4가지 감정으로 분류하기 애매한 텍스트를 분류하는 알고리즘을 추가할 예정이다. 또한 각 감정에 대한 키워드의 종류를 늘려 더 많은 양의 데이터로 모델을 학습시킨다면 보다 높은 성능을 낼 수 있다는 것이 확인되었다. 모델 자체에 대해서도 문장 단위를 입력으로 받는 KoBERT가 아닌, 형태소 단위를 입력으로 받는 KorBERT와 comment를 전문으로 처리하는 KcBERT를 활용한다면 더 높은 분류 성능을 기대할 수 있을 것이다. 
 
+### 4.추가시도.1 KcBERT
+지금 코드 수정중입니다.
+
 
 
 # 5. Reference  
@@ -87,4 +100,5 @@ JULIELab/EmoBank[Website], https://github.com/JULIELab/EmoBank
 Pytorch로 시작하는 딥러닝 입문[Website], https://wikidocs.net/64517  
 kh-kim/simple-ntc[Website], https://github.com/kh-kim/simple-ntc  
 SKTBrain/KoBERT[Website], https://github.com/SKTBrain/KoBERT  
+Beomi/KcBERT[Website], https://github.com/Beomi/KcBERT  
 어텐션 매커니즘과 tansformer(self-attention)[Website], https://medium.com/platfarm/%EC%96%B4%ED%85%90%EC%85%98-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98%EA%B3%BC-transfomer-self-attention-842498fd3225  
