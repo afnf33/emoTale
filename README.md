@@ -20,7 +20,7 @@ emotion(감정) + tale(이야기). 이야기에 담긴 감정을 찾아보자!
 # 2. 프로젝트 수행 과정
 
 ## 2.1 (사전 시도) Valence-Arousal Model에 의거한 감성 분류
-- github link : 따로 만든 다음에 링크 추가할게요
+- github link : https://github.com/zoomina/Valence-Arousal_based_sentiment_analysis  
 - NRC-VAD(lexicon) : https://saifmohammad.com/WebPages/nrc-vad.html
 - emobank(corpus) : https://github.com/JULIELab/EmoBank
 
