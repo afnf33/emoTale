@@ -56,8 +56,10 @@ Arousal은 기존의 감성분석에 가장 많이 활용되는 긍/부정에 �
 ## 2.번외. 기타 시도  
 비록 채택되지는 않았지만, 시도해봤던 여러 시도들
 
-### 2.번외.1 HIDEX
-(대충 HIDEX 설명). 컴퓨팅 파워 부족으로 실패
+### 2.번외.1 HiDEx
+github link : https://github.com/cyrus/high-dimensional-explorer  
+
+cosine distance를 기반으로 데이터의 양을 늘릴 수 있는 알고리즘으로, label되지 않은 대량의 corpus와 적정량의 lexicon을 이용하여 대량의 lexicon을 생성해낼 수 있다. 정서 관련 lexicon은 한국어는 물론이고 영어에서도 그 양이 부족하기에 lexicon 기반 시도의 정확도를 높이기 위해 시도하고자 하였다. 다만, 대량의 corpus에 대해 앞 뒤로 각 5-gram을 바탕으로 cosine distance를 적용하는 만큼 거대한 컴퓨팅 파워가 필요하여 시도하지 못했다.  
 
 ### 2.번외.2 규칙기반 한국어 감성분석 모델
 Rule-based 모델. 정확도가 0.3 수준에서 벗어나지 못해 실패
