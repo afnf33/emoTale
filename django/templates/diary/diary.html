@@ -1,0 +1,19 @@
+{% extends 'diary/index.html' %}
+{% load static %}
+{% block title %}<title>Emo:)Tale - My Diary Analysis</title>{% endblock %}
+
+{% block main %}
+<form action = "{% url 'diary:result' %}" method='POST' id = text>
+{% csrf_token %}
+<div id = 'body'>
+<h1 class="cover-heading">Diary</h1>
+    <p class="lead">일기를 입력해주세요. 일기의 감정분석을 해드립니다 :)</p>
+    <p class="lead" id="loading">
+    <textarea name = 'text' form = 'text' cols ="60" rows ="10" placeholder="" autofocus required ></textarea>
+    </p>
+    <p class="lead">
+      <button type = "submit" class = "btn btn-lg btn-secondary" value = "submit" id = "result">분석하기</button>
+    </p>
+</div>
+</form>
+{% endblock %}

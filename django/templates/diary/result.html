@@ -1,0 +1,146 @@
+{% extends 'diary/index.html' %}
+{% load static %}
+
+{% block title %}<title>Emo:)Tale - My Diary Analysis</title>{% endblock %}
+
+{% block main %}
+{% csrf_token %}
+<style>
+canvas{ border: 1px solid gray; border-radius: 3px;}
+</style>
+<input type = 'hidden' id = 'text' value = '{{ text }}'>
+<div id = 'loading'>
+<h1 class="cover-heading">분석중...</h1>
+<img src = "{% static 'css/Spinner.gif' %}"/>
+</div>
+<div id = 'result' style='display:none'>
+<h1 class="cover-heading">Result</h1>
+<p class="lead">입력하신 일기의 분석결과 입니다.</p>
+<canvas width = '600' height='600' id = 'canvas'></canvas>
+</div>
+
+<script type = "text/javascript">
+
+const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+console.log(csrftoken);
+var text = document.getElementById('text').value;
+var result = {};
+console.log(text);
+var loading = document.getElementById('loading');
+var page = document.getElementById('result');
+
+function draw(result){
+	
+    var sadness = parseFloat(result.results.sadness);
+    var joy = parseFloat(result.results.joy);
+    var anger = parseFloat(result.results.anger);
+    var fear = parseFloat(result.results.fear);
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+	const width = canvas.width;
+	const height = canvas.height;
+	
+	ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, width, height);
+    ctx.fill();
+    
+    ctx.beginPath();
+    ctx.strokeStyle = "dimgray";
+    ctx.lineWidth = 1;
+    ctx.moveTo(60, height/2);
+    ctx.lineTo(width/2, height-60);
+    ctx.lineTo(width-60, height/2);
+	ctx.lineTo(width/2, 60);
+	ctx.lineTo(60, height/2);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "dimgray";
+    ctx.lineWidth = 1;
+    ctx.moveTo(120, height/2);
+    ctx.lineTo(width/2, height-120);
+    ctx.lineTo(width-120, height/2);
+	ctx.lineTo(width/2, 120);
+	ctx.lineTo(120, height/2);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "dimgray";
+    ctx.lineWidth = 1;
+    ctx.moveTo(180, height/2);
+    ctx.lineTo(width/2, height-180);
+    ctx.lineTo(width-180, height/2);
+	ctx.lineTo(width/2, 180);
+	ctx.lineTo(180, height/2);
+    ctx.stroke();
+    
+
+    ctx.beginPath();
+    ctx.strokeStyle = "dimgray";
+    ctx.lineWidth = 1;
+    ctx.moveTo(240, height/2);
+    ctx.lineTo(width/2, height-240);
+    ctx.lineTo(width-240, height/2);
+	ctx.lineTo(width/2, 240);
+	ctx.lineTo(240, height/2);
+    ctx.stroke();
+    
+    
+    ctx.fillStyle = "black";
+    ctx.font = "25px Dosis";
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText("JOY", 300, 45);
+    
+    
+    ctx.fillStyle = "black";
+    ctx.font = "25px Dosis";
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText("ANGER", 65, 300);
+    
+    ctx.fillStyle = "black";
+    ctx.font = "25px Dosis";
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText("FEAR", 300, 555);
+    
+    ctx.fillStyle ="black";
+    ctx.font = "25px Dosis";
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText("SADNESS", 535, 300);
+    	
+    ctx.beginPath();
+    ctx.strokeStyle = "mediumspringgreen";
+    ctx.lineWidth = 5;
+    ctx.lineCap = 'round';
+    ctx.lineTo(300, 300-joy*200);
+    ctx.lineTo(300-anger*200, 300);
+    ctx.lineTo(300, 300+fear*200);
+    ctx.lineTo(300+sadness*200, 300);
+    ctx.lineTo(300, 300-joy*200);
+    ctx.stroke();
+};
+
+
+fetch('{% url "diary:analysis" %}', {
+	method: 'POST',
+	credentials: 'same-origin',
+	headers: {
+		'X-Requested-With':'XMLHttpRequest',
+		'X-CSRFToken': csrftoken,
+	},
+	body: text
+	})
+	.then(response => response.json())
+	.then(json => {
+		result = json
+		console.log(result)
+		draw(result)
+		loading.style.display ='none'
+		page.style.display = 'block'
+	})
+
+    </script>
+{% endblock %}
